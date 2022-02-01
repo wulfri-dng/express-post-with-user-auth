@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('header.ejs') %>
+    <h1>User List</h1>
+    <ul>
+        <% for(let i = 0; i < users.length; i++) { %>
+        <li>
+            First Name = <%= users[i].firstName %> <br>
+            Last Name = <%= users[i].lastName %> <br>
+            Age = <%= users[i].age %> <br>
+            Email = <%= users[i].email %>    
+            <hr>
+            <% } %> 
+        </li>
+    </ul>
+    <h2>Insert a new user</h2>
+    <form action="/users" method="POST">
+        <label for="fName">Enter your first name</label>
+        <br>
+        <input type="text" name="fName">
+        <br>
+        <br>
+        <label for="lName">Enter your last name</label>
+        <br>
+        <input type="text" name="lName">
+        <br>
+        <br>
+        <label for="age">Age</label>
+        <br>
+        <input type="text" name="age">
+        <br>
+        <br>
+        <label for="email">Enter your email</label>
+        <br>
+        <input type="email" name="email">
+        <br>
+        <br>
+        <button>Submit btn</button>
+    </form>
+</body>
+</html>

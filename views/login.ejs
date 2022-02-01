@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('header.ejs') %>
+    <div id="main-container">
+        <h1>Login Page</h1>
+        <form action="/login" method="post">
+            <label for="username">Enter your username:</label>
+            <br>
+            <input type="text" name="username">
+            <br>
+            <label for="password">Enter your password:</label>
+            <br>
+            <input type="password" name="password">
+            <br>
+            <button>Submit</button>
+        </form>
+        <br>
+        <a href="/register">Don't have an account?</a>
+    </div>
+
+    <style>
+        #main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 100px;
+        }
+        form {
+            width: 300px;
+        }
+        input {
+            margin-bottom: 20px;
+            margin-top: 5px;
+            width: 300px;
+            height: 22px;
+        }
+        button {
+           width: 300px;
+           height: 22px;
+        }
+    </style>
+</body>
+</html>

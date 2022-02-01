@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/blog.css">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('header.ejs') %>
+    <h1>Welcome to the Blog page!</h1>
+    <div>
+        <% for(let i=0; i<4; i++) { %> 
+                <div class="blog-row">
+                    <% for(let j=0; j<3; j++) { %>
+                            <div class="blog-post">
+                                <h3><%= data[i+j].title %> </h3>
+                                <p><%= data[i+j].body %> </p>
+                            </div>
+                    <% } %> 
+                </div>
+        <% } %>
+    </div>
+    <style>
+        .blog-row {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+        .blog-post {
+            width: 30%;
+            border: 1px solid rgba(0, 0, 0, 0.185);
+            padding: 5px;
+        }
+    </style>
+</body>
+</html>
