@@ -2,7 +2,7 @@ const userDataBase = [
         {
         "fName": "Danusha",
         "lName": "Navod",
-        "username": "wulfri",
+        "email": "dng@mail.com",
         "password": "1234"
         }
     ]

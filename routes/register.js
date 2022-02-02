@@ -11,9 +11,9 @@ registerApp.get('/', (req, res) => {
     res.render('register.ejs', {errorMessage: ""});
 })
 
-function checkUsername(username) {
+function checkEmail(email) {
     for(let i=0; i<userDataBase.length; i++) {
-        if(userDataBase[i].username === username) {
+        if(userDataBase[i].email === email) {
             return false;
         }
     }
@@ -28,24 +28,24 @@ function validatePassword(body) {
 }
 
 registerApp.post('/', urlencodedParser, async (req, res) => {
-    if(checkUsername(req.body.username) && validatePassword(req.body)) {
+    if(checkEmail(req.body.email) && validatePassword(req.body)) {
         const hashedPassword = await bcrtpy.hash(req.body.password, 10);
         const user = {
             "fName": req.body.fName,
             "lName": req.body.lName,
-            "username": req.body.username,
+            "email": req.body.email,
             "password": hashedPassword
         }
         userDataBase.push(user);
         console.log(userDataBase);
         res.redirect('/login')
-    } else if(checkUsername(req.body.username)) {
+    } else if(checkEmail(req.body.email)) {
         console.log("Check the password and try again!")
         res.render('register.ejs', {errorMessage: "Check the password and try again!"});
 
     } else {
-        console.log("You already have an account for this username!")
-        res.render('register.ejs', {errorMessage: "You already have an account for this username!"})
+        console.log("You already have an account for this email!")
+        res.render('register.ejs', {errorMessage: "You already have an account for this email!"})
     }
 })
 
